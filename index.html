@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StreamWorks</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand pl-4" href="#">
+                <h1>StreamWorks</h1>
+            </a>
+        </div>
+    </nav>
+
+
+    <div class=" container alert" role="alert" id="notification" hidden></div>
+    <div class="container bg-img py-5 my-3 rounded-4 mx1" style="background-image: url(./network.jpg)" id="entry-modal">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 text-lg-left text-left text-sm-center text-lg-start">
+                <h1 class="display-4 fw-bold lh-1 mb-3">Create or Join Meeting</h1>
+                <p class="col-lg-10 fs-4 p-0">
+                    <li>No authentication required</li>
+                    <li>Peer to peer in Real Time </li>
+                    <li>Screen Sharing is available</li>
+                </p>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="form-floating mb-3">
+                                <input id="room-input" class="room-input form-control" placeholder="Enter Room ID"
+                                    type="text" required>
+                                <label for="Room Id">Room Id</label>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-lg btn-primary btn-block"
+                                    onclick="createRoom()">Create
+                                    Room</button>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-lg btn-dark btn-block" onclick="joinRoom()">Join a
+                                    room</button>
+                            </div>
+                            <hr class="my-4">
+                            <small class="text-muted">By clicking Sign up, you agree to the <a href="terms.html"> terms
+                                    of use</a>.</small>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bg-light-subtle py-5 my-3 rounded-4" id="meet-area">
+        <p class="display-4 fw-bold lh-1 mb-3" id="room-number-text">Room Number 1233</p>
+        <div class="row justify-content-center">
+
+            <div class="col-11 col-md-5">
+                <p>Remote Video</p>
+                <video class="w-100" id="remote-video"></video>
+            </div>
+            <div class="col-11 col-md-5">
+                <p>Local Video</p>
+                <video class="w-100" id="local-video"></video>
+            </div>
+        </div>
+
+        <div class="container sticky-bottom">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <button class="btn btn-danger" onclick="location.reload()">
+                        <i class="bi bi-arrow-clockwise text-right"></i> Reload
+                    </button>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <button class="btn btn-success" onclick="startScreenShare()">
+                        <i class="bi bi-camera-video-fill text-right"></i> Start Screen Share
+                    </button>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <button class="btn btn-warning" onclick="stopScreenSharing()">
+                        <i class="bi bi-camera-video-off-fill text-right"></i> Stop Screen Share
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+</body>
+
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
